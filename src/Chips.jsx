@@ -1,21 +1,19 @@
 import { React, useState } from "react";
-import ToggleMachine from "./Toggle";
-import VendingMachine from "./VendingMachine";
+import useComponent from "./useComponent";
+import { Link, Route, NavLink } from "react-router-dom";
 
-function Chips() {
-  const [count, setCount] = useState(0);
-  const [showVendingMachine, setShowVendingMachine] = ToggleMachine()
-  const handleButtonClick =() =>{
-    setShowVendingMachine(prevState => ! prevState)
-  }
+function Chips({switchToComponent}) {
+  const [count, setCount] = useState(0);  
  
   return (    
-    
+   
+
     <div>
-    <h1>Bags Eaten: {count}</h1>      
+      <h1>Bags Eaten: {count}</h1>
       <button onClick={() => setCount(count => count + 1)}>NOM NOM NOM</button>
-      {showVendingMachine && <VendingMachine /> }
-      <button onClick={handleButtonClick}>Go Back</button>
+      {/* <button onClick={() => switchToComponent("vendingMachine")}>Go Back</button> */}
+      
+      <button><NavLink to="/">go back</NavLink></button>
        
     </div>
   );
@@ -24,3 +22,5 @@ function Chips() {
 }
 
 export default Chips;
+
+

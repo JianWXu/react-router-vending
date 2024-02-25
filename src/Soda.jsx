@@ -1,21 +1,14 @@
-import {React, useState} from "react";
-import VendingMachine from "./VendingMachine";
-import ToggleMachine from "./Toggle";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import useComponent from './useComponent';
 
-function Soda() {
-  
-  const [showVendingMachine, setShowVendingMachine] = ToggleMachine()
- 
-  const handleButtonClick = () => {
-    setShowVendingMachine(prevState => !prevState);
-  };
 
+function Soda({ switchToComponent }) {
   return (
     <div>
       <h1>OMG SUGARRRRR</h1>
-      {showVendingMachine && <VendingMachine /> }
-      <button onClick={handleButtonClick}>Go Back</button>
-       
+      {/* <button onClick={() => switchToComponent("vendingMachine")}>Go Back</button> */}
+      <button><NavLink to="/">go back</NavLink></button>
     </div>
   );
 }
